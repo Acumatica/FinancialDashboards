@@ -1,0 +1,46 @@
+﻿<SiteMapNode>
+    <data-set>
+        <relations format-version="3" relations-version="20160101" main-table="SiteMap">
+            <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+            <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+            <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+            <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+            <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+        </relations>
+        <layout>
+            <table name="SiteMap">
+                <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                    <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                </table>
+                <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+            </table>
+            <table name="MUIWorkspace">
+                <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+            </table>
+            <table name="MUISubcategory" />
+            <table name="MUIArea" />
+        </layout>
+        <data>
+            <SiteMap>
+                <row Position="4" Title="AP Clerk" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="DBAP0001" NodeID="ea37a8c6-d994-43a9-93ad-2911312218b8" ParentID="7eedbaf1-0b06-4101-917f-a352ad71ecdb">
+                    <MUIScreen IsPortal="0" WorkspaceID="a66d7837-0bae-42a9-a338-ca40a71556b5" Order="35" SubcategoryID="a9b4163b-414a-4213-8c01-4a6100e540f6">
+                        <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                    </MUIScreen>
+                    <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="20" SubcategoryID="a9b4163b-414a-4213-8c01-4a6100e540f6" />
+                </row>
+            </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="a66d7837-0bae-42a9-a338-ca40a71556b5" Order="845" Title="Dashboards" Icon="dashboard" IsSystem="0" />
+                <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="a9b4163b-414a-4213-8c01-4a6100e540f6" Order="1434" Name="Dashboard: Finance" Icon="" IsSystem="0" />
+            </MUISubcategory>
+        </data>
+    </data-set>
+</SiteMapNode>

@@ -1,0 +1,152 @@
+﻿<GenericInquiryScreen>
+    <data-set>
+        <relations format-version="3" relations-version="20170805" main-table="GIDesign">
+            <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIMassUpdateField (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GINavigationScreen (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GINavigationParameter (DesignID, ScreenID)" to="GINavigationScreen (DesignID, ScreenID)" />
+            <link from="GIOn (DesignID, RelationNbr)" to="GIRelation (DesignID, LineNbr)" />
+            <link from="GIRecordDefault (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIRelation (DesignID, ParentTable)" to="GITable (DesignID, Alias)" />
+            <link from="GIRelation (DesignID, ChildTable)" to="GITable (DesignID, Alias)" />
+            <link from="GIResult (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIResult (ObjectName, DesignID)" to="GITable (Alias, DesignID)" />
+            <link from="GISort (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GITable (DesignID)" to="GIDesign (DesignID)" />
+            <link from="GIWhere (DesignID)" to="GIDesign (DesignID)" />
+            <link from="SiteMap (Url)" to="GIDesign (DesignID)" type="WeakByUrl" linkname="toDesignById" baseurl="~/GenericInquiry/GenericInquiry.aspx" paramnames="id" />
+            <link from="SiteMap (Url)" to="GIDesign (Name)" type="WeakByUrl" linkname="toDesignByName" baseurl="~/GenericInquiry/GenericInquiry.aspx" />
+            <link from="ListEntryPoint (ListScreenID)" to="SiteMap (ScreenID)" />
+            <link from="SiteMap (ScreenID)" to="GIDesign (PrimaryScreenIDNew)" linkname="to1Screen" />
+            <link from="SiteMap (NodeID)" to="SiteMap (ParentID)" type="WeakToParent" recursive-nesting="yes" include-parents="False" />
+            <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+            <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+            <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+            <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+            <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="GIDesign (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIFilter (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIFilter (NoteID)" to="GIFilterKvExt (RecordID)" type="RowKvExt" />
+            <link from="GIGroupBy (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIOn (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIRelation (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIResult (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIResult (NoteID)" to="GIResultKvExt (RecordID)" type="RowKvExt" />
+            <link from="GISort (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GITable (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="GIWhere (NoteID)" to="Note (NoteID)" type="Note" />
+        </relations>
+        <layout>
+            <table name="GIDesign">
+                <table name="GIFilter" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    <table name="GIFilterKvExt" uplink="(NoteID) = (RecordID)" />
+                </table>
+                <table name="GIGroupBy" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GIMassAction" uplink="(DesignID) = (DesignID)" />
+                <table name="GIMassUpdateField" uplink="(DesignID) = (DesignID)" />
+                <table name="GINavigationScreen" uplink="(DesignID) = (DesignID)">
+                    <table name="GINavigationParameter" uplink="(DesignID, ScreenID) = (DesignID, ScreenID)" />
+                </table>
+                <table name="GIRecordDefault" uplink="(DesignID) = (DesignID)" />
+                <table name="GISort" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GITable" uplink="(DesignID) = (DesignID)">
+                    <table name="GIRelation" uplink="(DesignID, Alias) = (DesignID, ParentTable)">
+                        <table name="GIOn" uplink="(DesignID, LineNbr) = (DesignID, RelationNbr)">
+                            <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
+                    <table name="GIResult" uplink="(Alias, DesignID) = (ObjectName, DesignID)">
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="GIResultKvExt" uplink="(NoteID) = (RecordID)" />
+                    </table>
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="GIWhere" uplink="(DesignID) = (DesignID)">
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                </table>
+                <table name="SiteMap" uplink="(DesignID) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignById">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="SiteMap" uplink="(Name) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignByName">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="SiteMap" uplink="(PrimaryScreenIDNew) = (ScreenID)" recursion="(NodeID) = (ParentID)" linkname="to1Screen">
+                    <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+            </table>
+            <table name="MUIWorkspace">
+                <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+            </table>
+            <table name="MUISubcategory" />
+            <table name="MUIArea" />
+        </layout>
+        <data>
+            <GIDesign>
+                <row DesignID="0b1de91c-4fc8-4d64-b37f-8c70ef69a548" Name="DB-VendorHistory2" FilterColCount="3" PageSize="0" NewRecordCreationEnabled="0" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
+                    <GISort LineNbr="1" IsActive="1" DataFieldName="Vendor.acctCD" SortOrder="A" />
+                    <GITable Alias="Vendor" Name="PX.Objects.AP.Vendor">
+                        <GIRelation LineNbr="1" ChildTable="APInvoice" IsActive="1" JoinType="I">
+                            <GIOn LineNbr="1" ParentField="bAccountID" Condition="E " ChildField="vendorID" Operation="A" />
+                        </GIRelation>
+                        <GIResult LineNbr="6" IsActive="1" Field="acctName" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="0def69e1-0173-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="5" IsActive="1" Field="acctCD" Width="120" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="0bef69e1-0173-e711-944a-12d4d93f21e4" />
+                    </GITable>
+                    <GITable Alias="APInvoice" Name="PX.Objects.AP.APInvoice">
+                        <GIResult LineNbr="9" IsActive="1" Field="discTot" Caption="Disc. Amount" IsVisible="0" DefaultNav="1" QuickFilter="0" RowID="15ef69e1-0173-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="8" IsActive="1" Field="origDocAmt" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="13ef69e1-0173-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="7" IsActive="1" Field="docDate" Width="110" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="0fef69e1-0173-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="3" IsActive="1" Field="status" Width="100" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="4a38d575-0373-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="2" IsActive="1" Field="refNbr" Width="90" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="89b5c54f-af5c-49e6-853f-97838fc07582" />
+                        <GIResult LineNbr="1" IsActive="1" Field="docType" Width="80" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="4e4daec4-12e5-4aac-ad74-d9c2935fd189" />
+                    </GITable>
+                    <GIWhere LineNbr="3" IsActive="1" DataFieldName="APInvoice.status" Condition="E " IsExpression="1" Value1="C" CloseBrackets=")        " Operation="A" />
+                    <GIWhere LineNbr="2" IsActive="1" OpenBrackets="(        " DataFieldName="APInvoice.status" Condition="E " IsExpression="1" Value1="N" Operation="O" />
+                    <GIWhere LineNbr="1" IsActive="1" DataFieldName="APInvoice.docDate" Condition="GE" IsExpression="0" Value1="=DateAdd( Today(), 'm', -9 )" Operation="A" />
+                    <SiteMap linkname="toDesignById">
+                        <row Position="1064" Title="Vendor Purchasing History" Url="~/GenericInquiry/GenericInquiry.aspx?id=0b1de91c-4fc8-4d64-b37f-8c70ef69a548" Expanded="0" IsFolder="0" ScreenID="AP0002DB" NodeID="a723b6bb-38e6-483f-af02-4a6bfbb90526" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                            <SiteMap Position="829" Title="Hidden Generic Inquiries" Expanded="0" IsFolder="0" NodeID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                                <SiteMap Position="71" Title="Hidden" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="HD000000" NodeID="84351bc9-bf6c-48b5-9dea-f8207283b64a">
+                                    <SiteMap Position="0" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000">
+                                        <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="64" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" />
+                                    </SiteMap>
+                                </SiteMap>
+                            </SiteMap>
+                        </row>
+                    </SiteMap>
+                </row>
+            </GIDesign>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
+            </MUISubcategory>
+        </data>
+    </data-set>
+</GenericInquiryScreen>

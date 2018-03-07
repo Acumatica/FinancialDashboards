@@ -1,0 +1,24 @@
+﻿<SharedFilter>
+    <data-set>
+        <relations format-version="3" relations-version="20160101" main-table="FilterHeader">
+            <link from="FilterRow (FilterID)" to="FilterHeader (FilterID)" />
+            <link from="FilterHeader (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="FilterHeaderKvExt (RecordID)" type="RowKvExt" />
+        </relations>
+        <layout>
+            <table name="FilterHeader">
+                <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+                <table name="FilterHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+            </table>
+        </layout>
+        <data>
+            <FilterHeader>
+                <row FilterID="3110" UserName="admin" ScreenID="GI000060" ViewName="Results" FilterName="Expense" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                    <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="FinPeriod_finDate" Condition="5" ValueSt="@QuarterEnd" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Account_type" Condition="0" ValueSt="E" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                </row>
+            </FilterHeader>
+        </data>
+    </data-set>
+</SharedFilter>

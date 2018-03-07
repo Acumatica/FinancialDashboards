@@ -1,0 +1,24 @@
+﻿<SharedFilter>
+    <data-set>
+        <relations format-version="3" relations-version="20160101" main-table="FilterHeader">
+            <link from="FilterRow (FilterID)" to="FilterHeader (FilterID)" />
+            <link from="FilterHeader (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="FilterHeaderKvExt (RecordID)" type="RowKvExt" />
+        </relations>
+        <layout>
+            <table name="FilterHeader">
+                <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+                <table name="FilterHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+            </table>
+        </layout>
+        <data>
+            <FilterHeader>
+                <row FilterID="3072" UserName="admin" ScreenID="GI000049" ViewName="Results" FilterName="Overdue 60+" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                    <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="ARInvoice_Formulac09743c1b368e711944a12d4d93f21e4" Condition="2" ValueSt="0" CloseBrackets="1" Operator="0" IsUsed="1" FilterType="0" />
+                    <FilterRow FilterRowNbr="1" OpenBrackets="1" DataField="ARInvoice_Formula8e7963b9b368e711944a12d4d93f21e4" Condition="2" ValueSt="0" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                </row>
+            </FilterHeader>
+        </data>
+    </data-set>
+</SharedFilter>
