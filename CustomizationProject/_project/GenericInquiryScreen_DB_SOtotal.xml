@@ -1,6 +1,6 @@
 ﻿<GenericInquiryScreen>
     <data-set>
-        <relations format-version="3" relations-version="20170805" main-table="GIDesign">
+        <relations format-version="3" relations-version="20180809" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
             <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
@@ -21,6 +21,10 @@
             <link from="ListEntryPoint (ListScreenID)" to="SiteMap (ScreenID)" />
             <link from="SiteMap (ScreenID)" to="GIDesign (PrimaryScreenIDNew)" linkname="to1Screen" />
             <link from="SiteMap (NodeID)" to="SiteMap (ParentID)" type="WeakToParent" recursive-nesting="yes" include-parents="False" />
+            <link from="FilterHeader (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="FilterRow (FilterID)" to="FilterHeader (FilterID)" />
+            <link from="PivotTable (NoteID)" to="FilterHeader (RefNoteID)" />
+            <link from="PivotField (ScreenID, PivotTableID)" to="PivotTable (ScreenID, PivotTableID)" />
             <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
             <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
             <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
@@ -40,6 +44,7 @@
             <link from="GISort (NoteID)" to="Note (NoteID)" type="Note" />
             <link from="GITable (NoteID)" to="Note (NoteID)" type="Note" />
             <link from="GIWhere (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="Note (NoteID)" type="Note" />
         </relations>
         <layout>
             <table name="GIDesign">
@@ -77,6 +82,13 @@
                 </table>
                 <table name="SiteMap" uplink="(DesignID) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignById">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -84,6 +96,13 @@
                 </table>
                 <table name="SiteMap" uplink="(Name) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignByName">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -91,6 +110,13 @@
                 </table>
                 <table name="SiteMap" uplink="(PrimaryScreenIDNew) = (ScreenID)" recursion="(NodeID) = (ParentID)" linkname="to1Screen">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -113,24 +139,24 @@
                         <GIRelation LineNbr="1" ChildTable="BAccount" IsActive="1" JoinType="I">
                             <GIOn LineNbr="1" ParentField="customerID" Condition="E " ChildField="bAccountID" Operation="A" />
                         </GIRelation>
-                        <GIResult LineNbr="10" IsActive="1" Field="shipVia" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="5293edc7-7181-e711-944a-12d4d93f21e4" />
-                        <GIResult LineNbr="9" IsActive="1" Field="openOrderTotal" Caption="Open Order Total" Width="125" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="d6078692-608a-e611-946a-126b3844335e">
+                        <GIResult LineNbr="10" SortOrder="10" IsActive="1" Field="shipVia" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="5293edc7-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="9" SortOrder="9" IsActive="1" Field="openOrderTotal" Caption="Open Order Total" Width="125" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="d6078692-608a-e611-946a-126b3844335e">
                             <GIResultKvExt FieldName="CaptionEN" ValueText="Order Total" />
                         </GIResult>
-                        <GIResult LineNbr="8" IsActive="1" Field="requestDate" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="96a7ade2-7181-e711-944a-12d4d93f21e4" />
-                        <GIResult LineNbr="7" IsActive="1" Field="orderDesc" Width="250" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="68145ccf-7181-e711-944a-12d4d93f21e4" />
-                        <GIResult LineNbr="6" IsActive="1" Field="orderDate" Caption="Order Date" Width="125" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="d5078692-608a-e611-946a-126b3844335e">
+                        <GIResult LineNbr="8" SortOrder="8" IsActive="1" Field="requestDate" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="96a7ade2-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="7" SortOrder="7" IsActive="1" Field="orderDesc" Width="250" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="68145ccf-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="6" SortOrder="6" IsActive="1" Field="orderDate" Caption="Order Date" Width="125" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="0" RowID="d5078692-608a-e611-946a-126b3844335e">
                             <GIResultKvExt FieldName="CaptionEN" ValueText="Order Date" />
                         </GIResult>
-                        <GIResult LineNbr="3" IsActive="1" Field="status" Width="80" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="78f71d00-7181-e711-944a-12d4d93f21e4" />
-                        <GIResult LineNbr="2" IsActive="1" Field="orderNbr" Caption="Order Number" Width="120" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="d4078692-608a-e611-946a-126b3844335e">
+                        <GIResult LineNbr="3" SortOrder="3" IsActive="1" Field="status" Width="80" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="78f71d00-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="2" SortOrder="2" IsActive="1" Field="orderNbr" Caption="Order Number" Width="120" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="d4078692-608a-e611-946a-126b3844335e">
                             <GIResultKvExt FieldName="CaptionEN" ValueText="Order Number" />
                         </GIResult>
-                        <GIResult LineNbr="1" IsActive="1" Field="orderType" Width="80" IsVisible="0" DefaultNav="1" QuickFilter="0" RowID="d7078692-608a-e611-946a-126b3844335e" />
+                        <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="orderType" Width="80" IsVisible="0" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="d7078692-608a-e611-946a-126b3844335e" />
                     </GITable>
                     <GITable Alias="BAccount" Name="PX.Objects.CR.BAccount">
-                        <GIResult LineNbr="5" IsActive="1" Field="acctName" Caption="Customer Name" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="e5e38b70-7181-e711-944a-12d4d93f21e4" />
-                        <GIResult LineNbr="4" IsActive="1" Field="acctCD" Caption="Customer" Width="120" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="e3e38b70-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="5" SortOrder="5" IsActive="1" Field="acctName" Caption="Customer Name" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="e5e38b70-7181-e711-944a-12d4d93f21e4" />
+                        <GIResult LineNbr="4" SortOrder="4" IsActive="1" Field="acctCD" Caption="Customer" Width="120" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="e3e38b70-7181-e711-944a-12d4d93f21e4" />
                     </GITable>
                     <GIWhere LineNbr="4" IsActive="1" DataFieldName="SOOrder.orderType" Condition="E " IsExpression="1" Value1="IN" CloseBrackets=")        " Operation="A" />
                     <GIWhere LineNbr="3" IsActive="1" DataFieldName="SOOrder.orderType" Condition="E " IsExpression="1" Value1="CS" Operation="O" />
@@ -150,11 +176,15 @@
                 </row>
             </GIDesign>
             <MUIWorkspace>
+                <row IsPortal="1" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="5" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
                 <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
                     <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
                 </row>
             </MUIWorkspace>
             <MUISubcategory>
+                <row IsPortal="1" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
                 <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
             </MUISubcategory>
         </data>

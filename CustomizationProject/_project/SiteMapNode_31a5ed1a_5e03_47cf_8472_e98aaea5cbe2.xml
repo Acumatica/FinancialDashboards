@@ -25,8 +25,22 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="1080" Title="Cash Summary" Url="~/GenericInquiry/GenericInquiry.aspx?id=28c0cb03-2bc7-4fd5-9d82-a7a73c36e005" Expanded="0" IsFolder="0" ScreenID="CA0002DB" NodeID="57d087ec-f1b7-44d0-af18-779e3f9f6166" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93" />
+                <row Position="1099" Title="Cash Summary" Url="~/GenericInquiry/GenericInquiry.aspx?id=898d8592-c4ab-4210-9100-f17923d9b84f" Expanded="0" IsFolder="0" ScreenID="CA0002DB" NodeID="31a5ed1a-5e03-47cf-8472-e98aaea5cbe2" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                    <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="2020" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" />
+                </row>
             </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="1" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="5" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+                <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="1" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
+                <row IsPortal="0" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
+            </MUISubcategory>
         </data>
     </data-set>
 </SiteMapNode>

@@ -1,6 +1,6 @@
 ﻿<GenericInquiryScreen>
     <data-set>
-        <relations format-version="3" relations-version="20170805" main-table="GIDesign">
+        <relations format-version="3" relations-version="20180809" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
             <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
@@ -21,6 +21,10 @@
             <link from="ListEntryPoint (ListScreenID)" to="SiteMap (ScreenID)" />
             <link from="SiteMap (ScreenID)" to="GIDesign (PrimaryScreenIDNew)" linkname="to1Screen" />
             <link from="SiteMap (NodeID)" to="SiteMap (ParentID)" type="WeakToParent" recursive-nesting="yes" include-parents="False" />
+            <link from="FilterHeader (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="FilterRow (FilterID)" to="FilterHeader (FilterID)" />
+            <link from="PivotTable (NoteID)" to="FilterHeader (RefNoteID)" />
+            <link from="PivotField (ScreenID, PivotTableID)" to="PivotTable (ScreenID, PivotTableID)" />
             <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
             <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
             <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
@@ -40,6 +44,7 @@
             <link from="GISort (NoteID)" to="Note (NoteID)" type="Note" />
             <link from="GITable (NoteID)" to="Note (NoteID)" type="Note" />
             <link from="GIWhere (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="FilterHeader (NoteID)" to="Note (NoteID)" type="Note" />
         </relations>
         <layout>
             <table name="GIDesign">
@@ -77,6 +82,13 @@
                 </table>
                 <table name="SiteMap" uplink="(DesignID) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignById">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -84,6 +96,13 @@
                 </table>
                 <table name="SiteMap" uplink="(Name) = (Url)" recursion="(NodeID) = (ParentID)" linkname="toDesignByName">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -91,6 +110,13 @@
                 </table>
                 <table name="SiteMap" uplink="(PrimaryScreenIDNew) = (ScreenID)" recursion="(NodeID) = (ParentID)" linkname="to1Screen">
                     <table name="ListEntryPoint" uplink="(ScreenID) = (ListScreenID)" />
+                    <table name="FilterHeader" uplink="(ScreenID) = (ScreenID)">
+                        <table name="FilterRow" uplink="(FilterID) = (FilterID)" />
+                        <table name="PivotTable" uplink="(RefNoteID) = (NoteID)">
+                            <table name="PivotField" uplink="(ScreenID, PivotTableID) = (ScreenID, PivotTableID)" />
+                        </table>
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    </table>
                     <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
                         <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
                     </table>
@@ -106,17 +132,18 @@
         </layout>
         <data>
             <GIDesign>
-                <row DesignID="b14f8eea-3f97-47b5-bdf5-bb18d720944d" Name="DB-CashCurrent" FilterColCount="3" PageSize="0" NewRecordCreationEnabled="0" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
+                <row DesignID="898d8592-c4ab-4210-9100-f17923d9b84f" Name="DB-Cash2" FilterColCount="3" PageSize="0" ExportTop="0" NewRecordCreationEnabled="0" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
+                    <GISort LineNbr="1" IsActive="1" DataFieldName="Account.accountID" SortOrder="A" />
                     <GITable Alias="Ledger" Name="PX.Objects.GL.Ledger" />
                     <GITable Alias="GLHistoryByPeriod" Name="PX.Objects.GL.GLHistoryByPeriod">
-                        <GIRelation LineNbr="4" ChildTable="Account" IsActive="1" JoinType="I">
-                            <GIOn LineNbr="8" ParentField="accountID" Condition="E " ChildField="accountID" Operation="A" />
+                        <GIRelation LineNbr="6" ChildTable="Account" IsActive="1" JoinType="I">
+                            <GIOn LineNbr="12" ParentField="accountID" Condition="E " ChildField="accountID" Operation="A" />
                         </GIRelation>
-                        <GIRelation LineNbr="3" ChildTable="Ledger" IsActive="1" JoinType="I">
-                            <GIOn LineNbr="7" ParentField="ledgerID" Condition="E " ChildField="ledgerID" Operation="A" />
+                        <GIRelation LineNbr="5" ChildTable="Ledger" IsActive="1" JoinType="I">
+                            <GIOn LineNbr="13" ParentField="ledgerID" Condition="E " ChildField="ledgerID" Operation="A" />
                         </GIRelation>
-                        <GIRelation LineNbr="2" ChildTable="FinPeriod" IsActive="1" JoinType="I">
-                            <GIOn LineNbr="6" ParentField="finPeriodID" Condition="E " ChildField="finPeriodID" Operation="A" />
+                        <GIRelation LineNbr="4" ChildTable="FinPeriod" IsActive="1" JoinType="I">
+                            <GIOn LineNbr="14" ParentField="finPeriodID" Condition="E " ChildField="finPeriodID" Operation="A" />
                         </GIRelation>
                         <GIRelation LineNbr="1" ChildTable="GLHistory" IsActive="1" JoinType="I">
                             <GIOn LineNbr="5" ParentField="subID" Condition="E " ChildField="subID" Operation="A" />
@@ -127,25 +154,25 @@
                         </GIRelation>
                     </GITable>
                     <GITable Alias="GLHistory" Name="PX.Objects.GL.GLHistory">
-                        <GIResult LineNbr="8" IsActive="1" Field="finPeriodID" Caption="Last Fin. Period Activity" Width="100" IsVisible="0" DefaultNav="0" QuickFilter="0" RowID="f2c5d6c5-fdc5-e711-80d1-00155d012303" />
-                        <GIResult LineNbr="4" IsActive="1" Field="finYtdBalance" Caption="PTD Balance" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="ee116323-778d-e711-adf1-10c37b50462a" />
+                        <GIResult LineNbr="6" SortOrder="6" IsActive="1" Field="finYtdBalance" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="ab2f42cb-0d2d-4938-845b-5b769dd4aff2" />
+                        <GIResult LineNbr="3" SortOrder="3" IsActive="1" Field="finPeriodID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="1" RowID="f14aaf03-55ed-4ea4-8f13-65252033f192" />
                     </GITable>
-                    <GITable Alias="FinPeriod" Name="PX.Objects.GL.FinPeriod">
-                        <GIResult LineNbr="7" IsActive="1" Field="endDate" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="ec116323-778d-e711-adf1-10c37b50462a" />
-                        <GIResult LineNbr="6" IsActive="1" Field="startDate" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="aca62214-778d-e711-adf1-10c37b50462a" />
-                        <GIResult LineNbr="5" IsActive="1" Field="finPeriodID" Caption="Financial Period" Width="100" IsVisible="1" DefaultNav="1" QuickFilter="0" RowID="1d10d099-7b15-4eea-b70c-264b4941409f" />
+                    <GITable Alias="FinPeriod" Name="PX.Objects.GL.FinPeriods.MasterFinPeriod">
+                        <GIResult LineNbr="5" SortOrder="5" IsActive="1" Field="endDate" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="67c45662-0c71-4a0f-90e3-cc648c73a021" />
+                        <GIResult LineNbr="4" SortOrder="4" IsActive="1" Field="startDate" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="68e87721-ffa6-48a8-bc0b-41086a46661b" />
                     </GITable>
                     <GITable Alias="Account" Name="PX.Objects.GL.Account">
-                        <GIResult LineNbr="2" IsActive="1" Field="description" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="be3651ff-768d-e711-adf1-10c37b50462a" />
-                        <GIResult LineNbr="1" IsActive="1" Field="accountCD" Width="110" IsVisible="1" DefaultNav="0" QuickFilter="0" RowID="bc3651ff-768d-e711-adf1-10c37b50462a" />
+                        <GIResult LineNbr="2" SortOrder="2" IsActive="1" Field="accountCD_description" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="9e68dffd-4260-4cd0-82d2-834b59c291be" />
+                        <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="accountCD" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="7cb535b8-826a-43cc-adb9-7038a0967e0f" />
                     </GITable>
-                    <GIWhere LineNbr="5" IsActive="1" DataFieldName="FinPeriod.endDate" Condition="LE" IsExpression="0" Value1="=CDate( Year( Today() )+'-'+(Month(Today())+1)+'-01' )" Operation="A" />
-                    <GIWhere LineNbr="4" IsActive="1" DataFieldName="FinPeriod.periodNbr" Condition="NE" IsExpression="0" Value1="13" Operation="A" />
-                    <GIWhere LineNbr="3" IsActive="1" DataFieldName="FinPeriod.endDate" Condition="GE" IsExpression="0" Value1="=Today()" Operation="A" />
-                    <GIWhere LineNbr="2" IsActive="1" DataFieldName="Account.isCashAccount" Condition="E " IsExpression="1" Value1="True" Value2="False" Operation="A" />
-                    <GIWhere LineNbr="1" IsActive="1" DataFieldName="Ledger.balanceType" Condition="E " IsExpression="0" Value1="Actual" Operation="A" />
+                    <GIWhere LineNbr="5" IsActive="1" DataFieldName="FinPeriod.periodNbr" Condition="NE" IsExpression="0" Value1="13" Operation="A" />
+                    <GIWhere LineNbr="4" IsActive="1" DataFieldName="FinPeriod.startDate" Condition="GE" IsExpression="0" Value1="=DateAdd(CDate( Year( Today() )+'-'+(Month(Today())+1)+'-01' ),'m',-12)" Operation="A" />
+                    <GIWhere LineNbr="3" IsActive="1" DataFieldName="Account.isCashAccount" Condition="E " IsExpression="0" Value1="=True" Operation="A" />
+                    <GIWhere LineNbr="2" IsActive="1" DataFieldName="Ledger.balanceType" Condition="E " IsExpression="0" Value1="Actual" Operation="A" />
+                    <GIWhere LineNbr="1" IsActive="1" DataFieldName="FinPeriod.endDate" Condition="LE" IsExpression="0" Value1="=CDate( Year( Today() )+'-'+(Month(Today())+1)+'-01' )" Operation="A" />
                     <SiteMap linkname="toDesignById">
-                        <row Position="1082" Title="Cash on Hand" Url="~/GenericInquiry/GenericInquiry.aspx?id=b14f8eea-3f97-47b5-bdf5-bb18d720944d" Expanded="0" IsFolder="0" ScreenID="CA0001DB" NodeID="4845b520-8ff3-4276-82f4-53379ebb79d6" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                        <row Position="1099" Title="Cash Summary" Url="~/GenericInquiry/GenericInquiry.aspx?id=898d8592-c4ab-4210-9100-f17923d9b84f" Expanded="0" IsFolder="0" ScreenID="CA0002DB" NodeID="31a5ed1a-5e03-47cf-8472-e98aaea5cbe2" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                            <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="2020" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" />
                             <SiteMap Position="829" Title="Hidden Generic Inquiries" Expanded="0" IsFolder="0" NodeID="25876864-94f2-4238-9411-3c26c7ca6d93">
                                 <SiteMap Position="71" Title="Hidden" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="HD000000" NodeID="84351bc9-bf6c-48b5-9dea-f8207283b64a">
                                     <SiteMap Position="0" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000">
@@ -158,12 +185,18 @@
                 </row>
             </GIDesign>
             <MUIWorkspace>
+                <row IsPortal="1" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="5" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
                 <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
                     <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
                 </row>
             </MUIWorkspace>
             <MUISubcategory>
+                <row IsPortal="1" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
                 <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
+                <row IsPortal="1" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
+                <row IsPortal="0" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
             </MUISubcategory>
         </data>
     </data-set>
