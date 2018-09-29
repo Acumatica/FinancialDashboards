@@ -1,15 +1,29 @@
 # FinancialDashboards
-Set of Dashboards For Acumatica Financials module.
+Set of Dashboards For Acumatica Financial module.
 
 Publication of this customization allows you to use set of Financial Dashboards designed and developed Acumatica team.
 Package contains generic Inquires, Shared Filters and Dashboards.
 
-Supported Versions: Acumatica 2017R2, Acumatica 2018R1.
-Please note that this customization cannot be published on Acumatica 6.1 and below as dashboards were not supported by custimization engine in than version.
+Supported Versions: Acumatica 2017R2, Acumatica 2018R1, Acumatica 2018R2.
+Please note that this customization cannot be published on Acumatica 6.1 and below as dashboards were not supported by customization engine in than version.
+Please note that there are 2 releases of the dashboards:
+- Release 1 (2018R1) for version 2017R2/2018R1
+- Release 2 (2018R2) for version 2018R2
+Please take an appropriate release accordingly to your version number.
 
 To publish customization do following:
+
+Option 1: For Usage
+1) Open Release section of GitHub
+2) Choose the package release that is suitable for your Acumatica version
+3) Download the zip package with customization
+4) Open Acumatica and go to Customization Project (SM204505) screen
+5) Import customization zip package
+6) Select and publish customization files.
+
+Option 2: For Changes
 1) Download or Fork project from GitHub to local folder on your computer.
-2) Go to Customization Project (SM204505) screen
+2) Open Acumatica go to Customization Project (SM204505) screen
 3) Create new Project with name FinancialDashboards
 4) Open customization project created
 5) On the customization project browser click "Source Control -> Open Project from Folder..."
@@ -49,4 +63,3 @@ Following Generic Inquires are included:
 - DB-Unsent Invoices
 - DB-VendorHistory2
 - DB-VendorsOnHold
-
