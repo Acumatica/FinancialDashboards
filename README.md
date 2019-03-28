@@ -1,3 +1,5 @@
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+
 # FinancialDashboards
 Set of Dashboards For Acumatica Financial module.
 
@@ -63,3 +65,11 @@ Following Generic Inquires are included:
 - DB-Unsent Invoices
 - DB-VendorHistory2
 - DB-VendorsOnHold
+
+------------
+
+## Copyright and License
+
+Copyright © `2018` `Acumatica`
+
+This component is licensed under the MIT License, a copy of which is available online [here](LICENSE.md)
