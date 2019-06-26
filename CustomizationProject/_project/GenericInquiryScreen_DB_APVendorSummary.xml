@@ -1,12 +1,12 @@
 ﻿<GenericInquiryScreen>
     <data-set>
-        <relations format-version="3" relations-version="20180809" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
+        <relations format-version="3" relations-version="20190410" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
             <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassUpdateField (DesignID)" to="GIDesign (DesignID)" />
             <link from="GINavigationScreen (DesignID)" to="GIDesign (DesignID)" />
-            <link from="GINavigationParameter (DesignID, ScreenID)" to="GINavigationScreen (DesignID, ScreenID)" />
+            <link from="GINavigationParameter (DesignID, NavigationScreenLineNbr)" to="GINavigationScreen (DesignID, LineNbr)" />
             <link from="GIOn (DesignID, RelationNbr)" to="GIRelation (DesignID, LineNbr)" />
             <link from="GIRecordDefault (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIRelation (DesignID, ParentTable)" to="GITable (DesignID, Alias)" />
@@ -58,7 +58,7 @@
                 <table name="GIMassAction" uplink="(DesignID) = (DesignID)" />
                 <table name="GIMassUpdateField" uplink="(DesignID) = (DesignID)" />
                 <table name="GINavigationScreen" uplink="(DesignID) = (DesignID)">
-                    <table name="GINavigationParameter" uplink="(DesignID, ScreenID) = (DesignID, ScreenID)" />
+                    <table name="GINavigationParameter" uplink="(DesignID, LineNbr) = (DesignID, NavigationScreenLineNbr)" />
                 </table>
                 <table name="GIRecordDefault" uplink="(DesignID) = (DesignID)" />
                 <table name="GISort" uplink="(DesignID) = (DesignID)">
@@ -134,8 +134,8 @@
             <GIDesign>
                 <row DesignID="d50fd161-5c84-4b54-912d-c3f61d9ff0f7" Name="DB-APVendorSummary" FilterColCount="3" PageSize="0" NewRecordCreationEnabled="0" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
                     <GIGroupBy LineNbr="1" IsActive="1" DataFieldName="Vendor.acctCD" />
-                    <GINavigationScreen ScreenID="AP0012DB" WindowMode="S">
-                        <GINavigationParameter ParamID="202" FieldName="VendorID" ParameterName="Vendor.acctCD" IsExpression="0" />
+                    <GINavigationScreen ScreenID="AP0012DB" LineNbr="1" WindowMode="S">
+                        <GINavigationParameter LineNbr="1" FieldName="VendorID" ParameterName="Vendor.acctCD" IsExpression="0" />
                     </GINavigationScreen>
                     <GISort LineNbr="1" IsActive="1" DataFieldName="Vendor.acctCD" SortOrder="A" />
                     <GITable Alias="Vendor" Name="PX.Objects.AP.Vendor">
@@ -159,6 +159,18 @@
                     <GIWhere LineNbr="1" IsActive="1" DataFieldName="APInvoice.status" Condition="E " IsExpression="1" Value1="N" Operation="A" />
                     <SiteMap linkname="toDesignById">
                         <row Position="1061" Title="Vendor Summary" Url="~/GenericInquiry/GenericInquiry.aspx?id=d50fd161-5c84-4b54-912d-c3f61d9ff0f7" Expanded="0" IsFolder="0" ScreenID="AP0008DB" NodeID="f6f1e77f-9d6d-4548-ab9c-dbdd2f8f5630" ParentID="25876864-94f2-4238-9411-3c26c7ca6d93">
+                            <FilterHeader FilterID="53214" UserName="admin" ViewName="Results" FilterName="Past due + due in 60 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formula06b946b4da72e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="53213" UserName="admin" ViewName="Results" FilterName="Past due + due in 30 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formula4aa09dfbd672e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="53212" UserName="admin" ViewName="Results" FilterName="Past due + due in 7 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formulaf082f82ad772e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
+                            <FilterHeader FilterID="53211" UserName="admin" ViewName="Results" FilterName="Overdue Accounts" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                                <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formulaf26681a7d672e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                            </FilterHeader>
                             <SiteMap Position="829" Title="Hidden Generic Inquiries" Expanded="0" IsFolder="0" NodeID="25876864-94f2-4238-9411-3c26c7ca6d93">
                                 <SiteMap Position="71" Title="Hidden" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="HD000000" NodeID="84351bc9-bf6c-48b5-9dea-f8207283b64a">
                                     <SiteMap Position="0" Title="Sitemap Root" Url="~/Frames/Default.aspx" Expanded="0" IsFolder="0" ScreenID="00000000" NodeID="00000000-0000-0000-0000-000000000000">

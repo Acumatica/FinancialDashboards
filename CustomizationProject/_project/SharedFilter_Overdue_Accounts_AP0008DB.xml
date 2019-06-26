@@ -14,8 +14,8 @@
         </layout>
         <data>
             <FilterHeader>
-                <row FilterID="3070" UserName="admin" ScreenID="GI000049" ViewName="Results" FilterName="Overdue 1+" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
-                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="ARInvoice_Formula76b304a1b368e711944a12d4d93f21e4" Condition="2" ValueSt="0" CloseBrackets="0" Operator="1" IsUsed="1" FilterType="0" />
+                <row FilterID="53211" UserName="admin" ScreenID="AP0008DB" ViewName="Results" FilterName="Overdue Accounts" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formulaf26681a7d672e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
                 </row>
             </FilterHeader>
         </data>

@@ -14,8 +14,8 @@
         </layout>
         <data>
             <FilterHeader>
-                <row FilterID="3090" UserName="admin" ScreenID="GI000029" ViewName="Results" FilterName="Pending Approval" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
-                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="POOrder_status" Condition="0" ValueSt="B" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                <row FilterID="53208" UserName="admin" ScreenID="AR0008DB" ViewName="Results" FilterName="Overdue 31-60 Days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="ARInvoice_Formula88b865b0b368e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
                 </row>
             </FilterHeader>
         </data>

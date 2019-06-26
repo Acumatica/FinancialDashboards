@@ -14,7 +14,7 @@
         </layout>
         <data>
             <FilterHeader>
-                <row FilterID="3060" UserName="admin" ScreenID="GI000049" ViewName="Results" FilterName="All (me)" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                <row FilterID="53205" UserName="admin" ScreenID="AR0008DB" ViewName="Results" FilterName="All my records" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
                     <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Customer_ownerID" Condition="0" ValueSt="@me" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
                 </row>
             </FilterHeader>

@@ -14,9 +14,8 @@
         </layout>
         <data>
             <FilterHeader>
-                <row FilterID="3110" UserName="admin" ScreenID="GI000060" ViewName="Results" FilterName="Expense" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
-                    <FilterRow FilterRowNbr="2" OpenBrackets="0" DataField="FinPeriod_finDate" Condition="5" ValueSt="@QuarterEnd" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
-                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="Account_type" Condition="0" ValueSt="E" ValueSt2="" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
+                <row FilterID="53213" UserName="admin" ScreenID="AP0008DB" ViewName="Results" FilterName="Past due + due in 30 days" IsDefault="0" IsShared="1" IsShortcut="0" IsSystem="0" IsHidden="0">
+                    <FilterRow FilterRowNbr="1" OpenBrackets="0" DataField="APInvoice_Formula4aa09dfbd672e711944a12d4d93f21e4" Condition="2" ValueSt="0" ValueSt2="0" CloseBrackets="0" Operator="0" IsUsed="1" FilterType="0" />
                 </row>
             </FilterHeader>
         </data>

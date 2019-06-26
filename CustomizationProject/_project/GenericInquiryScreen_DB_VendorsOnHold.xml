@@ -1,12 +1,12 @@
 ﻿<GenericInquiryScreen>
     <data-set>
-        <relations format-version="3" relations-version="20180809" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
+        <relations format-version="3" relations-version="20190410" main-table="GIDesign" stable-sharing="True" file-name="(Name)">
             <link from="GIFilter (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIGroupBy (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassAction (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIMassUpdateField (DesignID)" to="GIDesign (DesignID)" />
             <link from="GINavigationScreen (DesignID)" to="GIDesign (DesignID)" />
-            <link from="GINavigationParameter (DesignID, ScreenID)" to="GINavigationScreen (DesignID, ScreenID)" />
+            <link from="GINavigationParameter (DesignID, NavigationScreenLineNbr)" to="GINavigationScreen (DesignID, LineNbr)" />
             <link from="GIOn (DesignID, RelationNbr)" to="GIRelation (DesignID, LineNbr)" />
             <link from="GIRecordDefault (DesignID)" to="GIDesign (DesignID)" />
             <link from="GIRelation (DesignID, ParentTable)" to="GITable (DesignID, Alias)" />
@@ -58,7 +58,7 @@
                 <table name="GIMassAction" uplink="(DesignID) = (DesignID)" />
                 <table name="GIMassUpdateField" uplink="(DesignID) = (DesignID)" />
                 <table name="GINavigationScreen" uplink="(DesignID) = (DesignID)">
-                    <table name="GINavigationParameter" uplink="(DesignID, ScreenID) = (DesignID, ScreenID)" />
+                    <table name="GINavigationParameter" uplink="(DesignID, LineNbr) = (DesignID, NavigationScreenLineNbr)" />
                 </table>
                 <table name="GIRecordDefault" uplink="(DesignID) = (DesignID)" />
                 <table name="GISort" uplink="(DesignID) = (DesignID)">
@@ -134,13 +134,13 @@
             <GIDesign>
                 <row DesignID="f05dd5ce-8d48-4f48-9809-995067b66525" Name="DB-VendorsOnHold" FilterColCount="3" PageSize="0" NewRecordCreationEnabled="0" MassDeleteEnabled="0" AutoConfirmDelete="0" MassRecordsUpdateEnabled="0" MassActionsOnRecordsEnabled="0" ExposeViaOData="0" ExposeViaMobile="0">
                     <GIGroupBy LineNbr="1" IsActive="1" DataFieldName="Vendor.AcctCD" />
-                    <GINavigationScreen ScreenID="AP0012DB" WindowMode="S">
-                        <GINavigationParameter ParamID="201" FieldName="VendorID" ParameterName="Vendor.acctCD" IsExpression="0" />
+                    <GINavigationScreen ScreenID="AP0012DB" LineNbr="1" WindowMode="S">
+                        <GINavigationParameter LineNbr="1" FieldName="VendorID" ParameterName="Vendor.acctCD" IsExpression="0" />
                     </GINavigationScreen>
                     <GISort LineNbr="1" IsActive="1" DataFieldName="Vendor.AcctCD" SortOrder="A" />
                     <GITable Alias="Vendor" Name="PX.Objects.AP.Vendor">
                         <GIResult LineNbr="2" SortOrder="2" IsActive="1" Field="acctName" Width="200" IsVisible="1" DefaultNav="0" AggregateFunction="MAX" QuickFilter="0" FastFilter="1" RowID="8638b984-5929-40d8-b88e-77e6f91d5360" />
-                        <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="AcctCD" Width="100" IsVisible="1" DefaultNav="0" AggregateFunction="MAX" NavigateTo="AP0012DB" QuickFilter="0" FastFilter="1" RowID="05876985-4948-45db-a3e1-839050b44553" />
+                        <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="AcctCD" Width="100" IsVisible="1" DefaultNav="0" AggregateFunction="MAX" NavigationNbr="1" QuickFilter="0" FastFilter="1" RowID="05876985-4948-45db-a3e1-839050b44553" />
                     </GITable>
                     <GITable Alias="APInvoice" Name="PX.Objects.AP.APInvoice">
                         <GIRelation LineNbr="1" ChildTable="Vendor" IsActive="1" JoinType="I">
