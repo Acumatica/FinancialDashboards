@@ -6,6 +6,8 @@ Set of Dashboards For Acumatica Financial module.
 Publication of this customization allows you to use set of Financial Dashboards designed and developed Acumatica team.
 Package contains generic Inquires, Shared Filters and Dashboards.
 
+[!] Please note, that publishing of this project may lead to overriding of your dashboards and generic inquiries in case you have your own inquiries with the same name/screenid. Before publishing, make sure that you do have a copy of the data.
+
 Supported Versions: Acumatica 2017R2, Acumatica 2018R1, Acumatica 2018R2.
 Please note that this customization cannot be published on Acumatica 6.1 and below as dashboards were not supported by customization engine in than version.
 Please note that there are 2 releases of the dashboards:
